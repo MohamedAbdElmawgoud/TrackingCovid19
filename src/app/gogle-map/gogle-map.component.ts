@@ -6,14 +6,14 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./gogle-map.component.scss'],
 })
 export class GogleMapComponent implements OnInit {
-  @ViewChild("map") mapElement;
+  @ViewChild("map" , {static : true}) mapElement;
   map: any;
   constructor() {
     
   }
 
   ngOnInit(){
-    this.initMap();
+    // this.initMap();
   }
 
   initMap(){

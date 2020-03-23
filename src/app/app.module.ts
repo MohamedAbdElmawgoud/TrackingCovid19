@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { GogleMapComponent } from "src/app/gogle-map/gogle-map.component";
 
 @NgModule({
-  declarations: [AppComponent,GogleMapComponent],
+  declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,],
   providers: [

@@ -6,23 +6,8 @@ import { ModalController } from "@ionic/angular";
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-@NgModule({
-  imports:      [  ],
-  declarations: [ GogleMapComponent],
-  exports:      [
-                  ]
- })
 export class Tab2Page {
 
  
-
-  constructor(   public modalController: ModalController,) {}
-  async presentModal(type:string) {
-   
-    const modal = await this.modalController
-    
-   
-    return await modal
-  }
   }
 
