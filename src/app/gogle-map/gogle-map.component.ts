@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-declare const gogle;
+declare const google;
 @Component({
   selector: 'gogle-map',
   templateUrl: './gogle-map.component.html',
@@ -24,7 +24,8 @@ export class GogleMapComponent implements OnInit {
       zoom: 11,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
-
+    console.log(this.mapElement.nativeElement);
+    
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions)
 
     let marker: google.maps.Marker = new google.maps.Marker({
