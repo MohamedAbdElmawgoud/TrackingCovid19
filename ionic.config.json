@@ -1,5 +1,7 @@
 {
   "name": "map",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

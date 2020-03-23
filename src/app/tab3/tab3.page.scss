@@ -1,3 +1,19 @@
 ion-content ion-toolbar {
   --background: translucent;
 }
+ion-icon {
+  margin-left: 5px;
+  color: #0C6BBF ;
+  font-size: 40px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.contact , .share{
+  margin:25px;
+  margin-top: 30px
+}
+ion-card-content{
+  margin-left: 5px;
+  margin-top:10px;
+  margin-bottom: 10px; 
+}

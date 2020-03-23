@@ -36,7 +36,18 @@ const routes: Routes = [
               import('../tab3/tab3.module').then(m => m.Tab3PageModule)
           }
         ]
-      },
+      }
+      ,{
+        path: 'profile',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../profile/profile.module').then(m => m.ProfilePageModule)
+          }
+        ]
+      }
+      ,
       {
         path: '',
         redirectTo: '/tabs/tab1',
@@ -49,6 +60,7 @@ const routes: Routes = [
     redirectTo: '/tabs/tab1',
     pathMatch: 'full'
   }
+  ,
 ];
 
 @NgModule({

@@ -1,0 +1,43 @@
+
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    width:200px;
+    height: 200px;
+   padding: 10px 20px;
+  border-radius: 50% !important;
+  margin-bottom: -40px 
+}
+ion-row{
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right:2.5%; 
+    margin: 5%;
+  }
+  ion-card{
+    height: 150px;
+  }
+  ion-card-title{
+      margin-left: 8px;
+  }
+  .stat{
+      text-align: center;
+      margin: auto;
+      margin-top: -12px;
+      border: 1px solid #524F4F;
+      height: 120px;
+      display: block;
+      width : 150px;
+  }
+  ion-card-content{
+    text-align: center;
+    
+    margin: 15px;
+    margin-top: 20px;
+    
+}
+p{
+    margin-top:-17px;
+}
