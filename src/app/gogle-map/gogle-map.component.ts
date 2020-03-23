@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 declare const gogle;
 @Component({
-  selector: 'app-gogle-map',
+  selector: 'gogle-map',
   templateUrl: './gogle-map.component.html',
   styleUrls: ['./gogle-map.component.scss'],
 })
@@ -13,7 +13,7 @@ export class GogleMapComponent implements OnInit {
   }
 
   ngOnInit(){
-    // this.initMap();
+     this.initMap();
   }
 
   initMap(){
