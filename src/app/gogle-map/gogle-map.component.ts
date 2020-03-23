@@ -8,6 +8,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class GogleMapComponent implements OnInit {
   @ViewChild("map" , {static : true}) mapElement;
   map: any;
+  google;
   constructor() {
     
   }
