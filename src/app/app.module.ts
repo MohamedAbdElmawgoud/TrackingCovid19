@@ -8,7 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GogleMapComponent } from "src/app/gogle-map/gogle-map.component";
+import { Geolocation } from '@ionic-native/geolocation/ngx'; 
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +17,7 @@ import { GogleMapComponent } from "src/app/gogle-map/gogle-map.component";
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
