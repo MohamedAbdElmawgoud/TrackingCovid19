@@ -19,20 +19,20 @@ export class GogleMapComponent implements OnInit {
   initMap(){
 
     let coords = new google.maps.LatLng(25,80);
-    let mapOptions: google.maps.MapOptions = {
+    let mapOptions= {
       center: coords,
       zoom: 11,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: (<any>google).maps.MapTypeId.ROADMAP
     }
-    console.log(this.mapElement.nativeElement);
     
-    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions)
+    this.map = new (<any>google).maps.Map(this.mapElement.nativeElement, mapOptions)
 
-    let marker: google.maps.Marker = new google.maps.Marker({
+    let marker = new (<any>google).maps.Marker({
       map: this.map,
       position: coords
     })
 
   }
+
 
 }
