@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-
+declare const gogle;
 @Component({
   selector: 'app-gogle-map',
   templateUrl: './gogle-map.component.html',
