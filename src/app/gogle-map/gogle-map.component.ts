@@ -8,7 +8,6 @@ declare const google;
 export class GogleMapComponent implements OnInit {
   @ViewChild("map" , {static : true}) mapElement;
   map: any;
-  google;
   constructor() {
     
   }
