@@ -63,7 +63,7 @@ export class GogleMapComponent implements OnInit {
     console.log(Polyline);
     let mapOptions= {
       center: coords,
-      zoom: 3,
+      zoom: 15,
       mapTypeId: (<any>google).maps.MapTypeId.ROADMAP
     }
     
@@ -85,6 +85,7 @@ export class GogleMapComponent implements OnInit {
     google.maps.event.addListener(marker, 'click', function () {
       infoWindow.open(this.map, marker);
     });
+    
     Polyline.setMap(this.map);
   }
 
