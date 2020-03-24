@@ -45,7 +45,7 @@ export class GogleMapComponent implements OnInit {
       
     ];
     this.initMap(this.lat,this.lng);
-    this.cretePolyLine(this.destination);
+    this.cretePolyLine(this.destination ,'#FF0000');
     
   })
    setInterval(()=>{
