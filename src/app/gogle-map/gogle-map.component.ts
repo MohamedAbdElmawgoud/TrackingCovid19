@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { ToastController } from '@ionic/angular';
 
 declare const google;
 const icon = {
@@ -26,7 +27,15 @@ export class GogleMapComponent implements OnInit {
   suppressMarkers: true;
   constructor(
     private geo: Geolocation
-  ) { }
+    ,public toastController: ToastController) {}
+    
+    async presentToast(title) {
+      const toast = await this.toastController.create({
+        message: title,
+        duration: 3000
+      });
+      toast.present();
+    }
  getMyLocation() {
   this.geo.getCurrentPosition({
     
@@ -37,8 +46,7 @@ export class GogleMapComponent implements OnInit {
    
     this.lat = location.coords.latitude;
     this.lng = location.coords.longitude;
-     //Earth’s radius, sphere
-  
+   
     this.destination = [
       {lat: this.lat, lng: this.lng},
      
@@ -95,7 +103,8 @@ export class GogleMapComponent implements OnInit {
        
       ];
       this.cretePolyLine(this.destination,'#194B11');
-
+      this.presentToast(this.lat)
+      
      
     })},
     10000
@@ -112,17 +121,19 @@ export class GogleMapComponent implements OnInit {
    
     let R=6378137
     
-     //offsets in meters
-     let dn = 5
-     let de = 5
+    //  //offsets in meters
+    //  let dn = 10 
+    //  let de = 10
     
-     //Coordinate offsets in radians
-     let dLat = dn / R ;
-     let dLon = de / (R * Math.acos(3.14 * lng / 180));
+    //  //Coordinate offsets in radians
+    //  let dLat = dn / R ;
+    //  let dLon = de / (R * Math.acos(3.14 * dLat / 180));
    
      //OffsetPosition, decimal degrees
-     let latO = lat + dLat * 180 /  3.14;
-     let lonO = lng + dLon * 180 / 3.14 ;
+// ==(0.000009000009*10)
+
+     let latO = lat +(0.000009000009*10);
+     let lonO = lng +(0.000009000009*10) ;
      return {lato: latO ,lono: lonO}
   }
 
