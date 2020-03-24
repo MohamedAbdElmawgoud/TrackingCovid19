@@ -29,13 +29,13 @@ export class GogleMapComponent implements OnInit {
     private geo: Geolocation
     ,public toastController: ToastController) {}
     
-    async presentToast(title) {
-      const toast = await this.toastController.create({
-        message: title,
-        duration: 3000
-      });
-      toast.present();
-    }
+    // async presentToast(title) {
+    //   const toast = await this.toastController.create({
+    //     message: title,
+    //     duration: 3000
+    //   });
+    //   toast.present();
+    // }
  getMyLocation() {
   this.geo.getCurrentPosition({
     
@@ -103,7 +103,7 @@ export class GogleMapComponent implements OnInit {
        
       ];
       this.cretePolyLine(this.destination,'#194B11');
-      this.presentToast(this.lat)
+      // this.presentToast(this.lat)
       
      
     })},
