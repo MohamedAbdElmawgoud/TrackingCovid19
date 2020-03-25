@@ -16,7 +16,11 @@ import {
 declare const google;
 const icon = {
   url: 'assets/icon/marker.svg', // image url
-  scaledSize: new google.maps.Size(50, 50), // scaled size
+  Size: new google.maps.Size(10, 10), // scaled size
+  size: {
+    width: 40,
+    height: 40
+ }
 };
 
 @Component({
@@ -25,7 +29,8 @@ const icon = {
   styleUrls: ['./gogle-map.component.scss'],
 })
 export class GogleMapComponent implements OnInit {
-
+  
+  routePoints= [];  
   map: GoogleMap;
   address:string;
  
@@ -53,6 +58,15 @@ export class GogleMapComponent implements OnInit {
       // }
     });
     this.goToMyLocation();
+    this.routePoints = [ {
+      lat: 30.080750600500002,
+      lng: 31.261069100700004
+    },
+    {
+      lat: 30.080759600510902 ,
+      lng: 31.261269100709004
+    }
+  ]
   }
  
  
@@ -62,12 +76,52 @@ export class GogleMapComponent implements OnInit {
     // Get the location of you
     this.map.getMyLocation().then((location: MyLocation) => {
       console.log(JSON.stringify(location, null ,2));
- 
+      let lat = location.latLng.lat;
+      let lng = location.latLng.lng;
+    
+      
+    
+   
+      
+            this.addPlolyLine(this.routePoints ,'#173F1B');
+
+            let routePointss = [ {
+              lat: (30.080750600500002)+(0.000009000009*50),
+              lng: 31.261069100700004+(0.000009000009*50)
+            },
+            {
+              lat: 30.080759600510902+(0.000009000009*100) ,
+              lng: 31.261269100709004+(0.000009000009*100)
+            }
+          ]
+          this.addPlolyLine(routePointss ,'#D35228');
+
+          routePointss = [ {
+            lat: (30.080750600500002)+(0.000009000009*10),
+            lng: 31.261069100700004+(0.000009000009*10)
+          },
+          {
+            lat: 30.080759600510902+(0.000009000009*80) ,
+            lng: 31.261269100709004+(0.000009000009*80)
+          }
+        ]
+        this.addPlolyLine(routePointss ,'#2843D3');
+        routePointss = [ {
+          lat: (30.080750600500002)+(0.000009000009*660),
+          lng: 31.261069100700004+(0.000009000009*660)
+        },
+        {
+          lat: 30.080759600510902+(0.000009000009*550) ,
+          lng: 31.261269100709004+(0.000009000009*500)
+        }
+      ]
+      this.addPlolyLine(routePointss ,'#C6D328');
       // Move the map camera to the location with animation
       this.map.animateCamera({
         target: location.latLng,
         zoom: 17,
-        duration: 5000
+        duration: 5000,
+        
       });
  
       //add a marker
@@ -75,7 +129,8 @@ export class GogleMapComponent implements OnInit {
         title: '@ionic-native/google-maps plugin!',
         snippet: 'This plugin is awesome!',
         position: location.latLng,
-        animation: GoogleMapsAnimation.BOUNCE
+        animation: GoogleMapsAnimation.BOUNCE,
+        icon : icon,
       });
  
       //show the infoWindow
@@ -97,7 +152,24 @@ export class GogleMapComponent implements OnInit {
       this.showToast(err.error_message);
     });
   }
- 
+  addPlolyLine(routePoints ,color){      
+    this.map.addPolyline({
+            points: routePoints,
+            'color': color,
+            'width': 4,
+            'geodesic': true
+          }).then((resp) => {
+            let restaurantMarkerOptions: MarkerOptions = {
+              title: "Sample Title",
+              position: this.routePoints[this.routePoints.length - 1],
+              animation: GoogleMapsAnimation.BOUNCE,
+              icon: icon
+            };
+          //   this.map.addMarker(restaurantMarkerOptions).then((marker: Marker) => {
+          //     marker.showInfoWindow();
+          // });
+            });
+        }
   async showToast(message: string) {
     let toast = await this.toastCtrl.create({
       message: message,

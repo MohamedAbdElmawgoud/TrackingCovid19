@@ -1,19 +1,56 @@
-ion-content ion-toolbar {
-  --background: translucent;
+ion-content{
+  --background: linear-gradient(to bottom, #181818, #181818)0% 0%/100% 30% no-repeat ,white 0% 100%/100% 50% no-repeat;
+  
 }
+
+.card{
+  // height: 60px;
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  box-shadow: 2px 2px 2px 2px #ECEAEA;
+  margin-top: 20px;
+  border-radius: 5%;
+  background: transparent;
+  padding: 10px;
+  
+}
+.firstDiv{
+  margin-top: 10%;
+  background: transparent;
+  }
 ion-icon {
   margin-left: 5px;
   color: #0C6BBF ;
-  font-size: 40px;
+  font-size: 20px;
   border-radius: 50%;
   margin-right: 5px;
 }
-.contact , .share{
-  margin:25px;
-  margin-top: 30px
-}
-ion-card-content{
+h2{
+  text-align: left !important;
+  font-size: 17px;
   margin-left: 5px;
-  margin-top:10px;
-  margin-bottom: 10px; 
+  text-transform: capitalize
+}
+
+.info ,{
+  
+  background: #272727;
+  color: white;
+  width: 80%;
+  height: 150px;
+  margin: auto;
+  margin-top: 20%;
+}
+.title , ion-card-subtitle{
+  color: white;
+  
+  margin-left:10px;
+  margin: 5%;
+  font-style:bold;
+  font-size:  25px
+}
+ion-card-subtitle{
+  font-style:normal;
+  font-size:  15px
 }
