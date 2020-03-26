@@ -7,6 +7,7 @@ import { BackgroundGeolocation,
    BackgroundGeolocationConfig,
     BackgroundGeolocationEvents, 
     BackgroundGeolocationResponse } from '@ionic-native/background-geolocation/ngx';
+import { ToastController } from "@ionic/angular";
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,7 @@ import { BackgroundGeolocation,
 })
 export class AppComponent {
   location: any =[];
-  constructor(
+  constructor( public toastCtrl: ToastController,
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
@@ -46,6 +47,7 @@ this.backgroundGeolocation.configure(config)
 this.backgroundGeolocation.on(BackgroundGeolocationEvents.location).subscribe((location: BackgroundGeolocationResponse) => {
 console.log('location is : ' + location);
 this.location.push(location);
+this.showToast(this.location);
 // IMPORTANT:  You must execute the finish method here to inform the native plugin that you're finished,
 // and the background-task may be completed.  You must do this regardless if your operations are successful or not.
 // IF YOU DON'T, ios will CRASH YOUR APP for spending too much time in the background.
@@ -58,5 +60,12 @@ this.backgroundGeolocation.finish(); // FOR IOS ONLY
 this.backgroundGeolocation.start();
 
   }
-  
+  async showToast(message) {
+    let toast = await this.toastCtrl.create({
+      message: message,
+      duration: 3000,
+      position: 'middle'
+    });
+    toast.present();
+  }
 }
