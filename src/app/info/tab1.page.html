@@ -1,18 +1,44 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
+  
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <button (click)="changeScreen(0)" *ngIf="screen">appUse</button>
   <button (click)="changeScreen(1)" *ngIf="!screen">Blog</button>
+
   <div class="appUse" *ngIf="screen">
-    <h1>appUse</h1>
+  <ion-card>
+    <ion-card-content>
+      iThe articles in English grammar are the and a/an, and in certain contexts some. "An" and "a" are modern forms of the Old English "an", which in Anglian dialects was the number "one" (compare "on" in Saxon dialects)
+    </ion-card-content>
+    <ion-card-header>
+        
+        <ion-card-title>
+            <img src="https://cdn3.iconfinder.com/data/icons/3d-printing-icon-set/512/User.png">
+            
+          mobile developer</ion-card-title>
+      </ion-card-header>
+    
+   
+  </ion-card>  
+  <ion-card>
+      <ion-card-content>
+        iThe articles in English grammar are the and a/an, and in certain contexts some. "An" and "a" are modern forms of the Old English "an", which in Anglian dialects was the number "one" (compare "on" in Saxon dialects)
+      </ion-card-content>
+      <ion-card-header>
+          
+          <ion-card-title>
+              <img src="https://getdrawings.com/free-icon/icon-for-man-70.png">
+            mobile developer</ion-card-title>
+        </ion-card-header>
+      
+     
+    </ion-card>  
+
+    
   </div>
   <div class="Blog" *ngIf="!screen">
-    <h1>Blog</h1>
+    
+    <h1>appUse</h1>
   </div>
 </ion-content>

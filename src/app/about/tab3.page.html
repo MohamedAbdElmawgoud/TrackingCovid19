@@ -3,7 +3,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <div>
+        <button (click)="changeScreen(0)" *ngIf="screen">share app</button>
+        <button (click)="changeScreen(1)" *ngIf="!screen">contact us</button>
+    <div *ngIf="screen">
+        <div>
         <ion-card class="info">
 
             <ion-card-title class="title">
@@ -28,7 +31,51 @@
                 <ion-icon name="mail" style="color:#085193"></ion-icon>
             </ion-card>
         </div>
+    </div>
 
-       
+    </div>
+
+    <div *ngIf="!screen">
+            <div>
+                    <ion-card class="info">
+            
+                        <ion-card-title class="title">
+                         About Application
+                        </ion-card-title>
+                        <ion-card-subtitle>
+                                Application software (app for short) is a program or group of programs designed for end users. Examples of an application include a word processor
+                        </ion-card-subtitle>
+                    </ion-card>
+                </div>
+                <div class="container ">
+                    
+                    <div class="contact">
+                        <ion-card class="card">
+                            <h2>
+                             Social Media
+                            </h2>
+                            <ion-icon class="face" name="logo-facebook"></ion-icon>
+                            <ion-icon name="logo-linkedin" style="color:#0C89BF"></ion-icon>
+                            <ion-icon name="logo-twitter" style="color:#0CA6BF"></ion-icon>
+                            <ion-icon name="logo-whatsapp" style="color:#0CBF59"></ion-icon>
+                            <ion-icon name="mail" style="color:#085193"></ion-icon>
+                        </ion-card>
+                    </div>
+                    <hr>
+                    <div>
+                            <ion-card class="card">
+                            <h2>
+                             Share App
+                            </h2>
+                            <ion-icon class="face" name="logo-facebook"></ion-icon>
+                            <ion-icon name="logo-linkedin" style="color:#0C89BF"></ion-icon>
+                            <ion-icon name="logo-twitter" style="color:#0CA6BF"></ion-icon>
+                            <ion-icon name="logo-whatsapp" style="color:#0CBF59"></ion-icon>
+                            <ion-icon name="mail" style="color:#085193"></ion-icon>
+                        </ion-card>
+                    </div>
+
+                </div>
+               
     </div>
 </ion-content>
