@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from "src/app/apiService/api.service";
 
 @Component({
   selector: 'app-profile',
@@ -8,10 +7,10 @@ import { ApiService } from "src/app/apiService/api.service";
 })
 export class ProfilePage implements OnInit {
 
-  constructor(private api: ApiService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.api.getPolylines();
+    
   }
 
 }

@@ -13,6 +13,8 @@ import {
   GoogleMapsAnimation,
   MyLocation
 } from '@ionic-native/google-maps';
+import { ApiService } from "src/app/apiService/api.service";
+
 declare const google;
 const icon = {
   url: 'assets/icon/marker.svg', // image url
@@ -29,21 +31,32 @@ const icon = {
   styleUrls: ['./gogle-map.component.scss'],
 })
 export class GogleMapComponent implements OnInit {
-  
-  routePoints= [];  
+  route: any;
+
+  routePoints= [];
   map: GoogleMap;
   address:string;
  
   constructor(
     public toastCtrl: ToastController,
+    private api: ApiService,
     private platform: Platform
     ) { }
  
-  ngOnInit() {
+  async ngOnInit() {
     // Since ngOnInit() is executed before `deviceready` event,
     // you have to wait the event.
+    
     this.platform.ready();
+    this.route =  await this.api.getPolylines();
+   console.log(this.route);
     this.loadMap();
+    
+    this.route.forEach(element => {
+     console.log(element);
+   });
+    console.log(this.routePoints);
+    
   }
  
   loadMap() {
@@ -57,16 +70,9 @@ export class GogleMapComponent implements OnInit {
       //   tilt: 30
       // }
     });
+    
     this.goToMyLocation();
-    this.routePoints = [ {
-      lat: 30.080750600500002,
-      lng: 31.261069100700004
-    },
-    {
-      lat: 30.080759600510902 ,
-      lng: 31.261269100709004
-    }
-  ]
+    
   }
  
  

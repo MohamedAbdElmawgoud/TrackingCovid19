@@ -28,15 +28,28 @@ export class ApiService {
         });
       }
       async getPolylines() {
-        
-            let data = (<any>await this.httpClient.get('http://waleedser-001-site1.atempurl.com/api/polylines/get').toPromise()).data;
-        
+       
+            let data = (<any>await this.httpClient.get(' http://waleedser-001-site1.atempurl.com/api/polylines/get').toPromise());
             return data.map(ele => {
-              console.log(ele)
+              // console.log(ele)
               return {
                ele
               }
             });
+          
+        }
+        async getUser() {
+         
+              let data = (<any>await this.httpClient.get('http://waleedser-001-site1.atempurl.com/api/users/get').toPromise());
+              return data.map(ele => {
+                // console.log(ele)
+                return {
+                 ele
+                }
+              });
+            
+            
+  
+            
           }
-      
 }
