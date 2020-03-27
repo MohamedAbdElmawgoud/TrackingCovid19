@@ -1,5 +1,5 @@
 ion-content{
-    --background: linear-gradient(to bottom, #123457, #345679)0% 0%/100% 40% no-repeat ,white 0% 100%/100% 50% no-repeat;
+    --background: linear-gradient(to bottom, #000307, #0d0f11)0% 0%/100% 40% no-repeat ,white 0% 100%/100% 50% no-repeat;
     
 }
 img{
@@ -38,7 +38,7 @@ ion-card-content{
     left: 1%;
     
     color: #FFFFFF;
-    background:  linear-gradient(to left, #123457, #345679);  
+    background:  linear-gradient(to bottom, #000307, #0d0f11);  
     background-size:20px 20px 20px 20px;
     background-repeat: no-repeat;
     border-radius: 40%;
@@ -57,7 +57,7 @@ ion-card-content{
         margin-bottom: 10px;
         margin-top: 0px;
         border: 1px solid #ccc;
-        border-radius: 10%;
+        // border-radius: 10%;
         
     }
     ion-label{

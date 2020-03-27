@@ -8,48 +8,57 @@ export class ApiService {
 
   constructor(private httpClient: HttpClient) { }
 
-  async getUpdateStatus() {
-    
-        let data = (<any>await this.httpClient.post('http://waleedser-001-site1.atempurl.com/api/users/updatestate',
-        {
-          "userId": 1 ,
-	"latitude": 30.29, //Double
-	"longitude": 30.011, //Double
-	"colorId": 1
-        }
-      
-      ).toPromise()).data;
-    
-        return data.map(ele => {
-          console.log(ele)
-          return {
-           ele
-          }
-        });
+  async getUpdateStatus(data) {
+
+    return (<any>await this.httpClient.post('http://waleedser-001-site1.atempurl.com/api/users/updatestate',
+      // {
+      //   "userId": 1,
+      //   "latitude": 30.29, //Double
+      //   "longitude": 30.011, //Double
+      //   "colorId": 1
+      // }
+    data
+    ).toPromise()).data;
+
+  }
+  async getPolylines() {
+
+    let data = (<any>await this.httpClient.get(' http://waleedser-001-site1.atempurl.com/api/polylines/get').toPromise());
+    return data.map(ele => {
+      // console.log(ele)
+      return {
+        ele
       }
-      async getPolylines() {
-       
-            let data = (<any>await this.httpClient.get(' http://waleedser-001-site1.atempurl.com/api/polylines/get').toPromise());
-            return data.map(ele => {
-              // console.log(ele)
-              return {
-               ele
-              }
-            });
-          
-        }
-        async getUser() {
-         
-              let data = (<any>await this.httpClient.get('http://waleedser-001-site1.atempurl.com/api/users/get').toPromise());
-              return data.map(ele => {
-                // console.log(ele)
-                return {
-                 ele
-                }
-              });
-            
-            
-  
-            
-          }
+    });
+
+  }
+  async getUser(id) {
+
+    return (<any>await this.httpClient.get('http://waleedser-001-site1.atempurl.com/api/users/' + id).toPromise());
+
+  }
+  async appInfo(id) {
+
+    return (<any>await this.httpClient.get('http://waleedser-001-site1.atempurl.com/api/appinfo').toPromise());
+
+  }
+  async posts(id) {
+
+    return (<any>await this.httpClient.get('http://waleedser-001-site1.atempurl.com/api/posts').toPromise());
+
+  }
+  async getUsers(){
+  return (<any>await this.httpClient.get('http://waleedser-001-site1.atempurl.com/api/users').toPromise());
+
+  }
+
+  async register(data){
+     return (<any>await this.httpClient.post('http://waleedser-001-site1.atempurl.com/api/users/register' , data).toPromise());
+  }
+  async login(data){
+    (<any>await this.httpClient.post('http://waleedser-001-site1.atempurl.com/api/users/login' , data).toPromise());
+ }
+ async contactUs(data){
+  (<any>await this.httpClient.post('http://waleedser-001-site1.atempurl.com/api/contactus' , data).toPromise());
+}
 }

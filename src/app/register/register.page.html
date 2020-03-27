@@ -4,55 +4,94 @@
   
     <ion-card-content>
       Register Form
-      <ion-icon name="create" slot="create"></ion-icon>
+      <!-- <ion-icon name="create" slot="create"></ion-icon> -->
     </ion-card-content>
-    <div class="parent">
-      <br>
-      <h1>User Profile</h1>
-      <br>
-      <ion-label>User Name</ion-label>
-      <br>
-      <br>
-      <ion-item lines="none">
-        <ion-input type="text" placeholder="       Enter User Name">
-          <ion-icon class="icon" name="person"></ion-icon>
-        </ion-input>
-      </ion-item>
+    <form  [formGroup]="registerForm" >
+      <div class="parent">
+        <br>
+        <br>
+        <ion-label>First Name</ion-label>
+        <br>
+        <br>
+        <ion-item lines="none">
+          <ion-input  formControllerName="firstName" type="text" placeholder="       Enter User Name">
+            <ion-icon class="icon" name="person"></ion-icon>
+          </ion-input>
+        </ion-item>
   
-      <ion-label>Email</ion-label>
-      <br>
-      <br>
-      <ion-item lines="none">
-        <ion-input type="mail" placeholder="       Enter Email">
-          <ion-icon class="icon" name="mail"></ion-icon>
-        </ion-input>
-      </ion-item>
+        <ion-label>Last Name</ion-label>
+        <br>
+        <br>
+        <ion-item lines="none">
+          <ion-input type="text" placeholder="       Enter User Name">
+            <ion-icon class="icon" name="person"></ion-icon>
+          </ion-input>
+        </ion-item>
+    
+        <ion-label>Email</ion-label>
+        <br>
+        <br>
+        <ion-item lines="none">
+          <ion-input type="mail" placeholder="       Enter Email">
+            <ion-icon class="icon" name="mail"></ion-icon>
+          </ion-input>
+        </ion-item>
+  
+        <ion-label>home address</ion-label>
+        <br>
+        <br>
+        <ion-item lines="none">
+          <ion-input type="mail" placeholder="       Enter Email">
+            <ion-icon class="icon" name="mail"></ion-icon>
+          </ion-input>
+        </ion-item>
+  
+        <ion-label>work address</ion-label>
+        <br>
+        <br>
+        <ion-item lines="none">
+          <ion-input type="mail" placeholder="       Enter Email">
+            <ion-icon class="icon" name="mail"></ion-icon>
+          </ion-input>
+        </ion-item>
+    
+    
+        <ion-item>
+          <ion-label>Gender</ion-label>
+          <ion-select placeholder="Select One">
+            <ion-select-option value="Female">Female</ion-select-option>
+            <ion-select-option value="Male">Male</ion-select-option>
+          </ion-select>
+        </ion-item>
   
   
-      <ion-label>Mobile Number</ion-label>
-      <br>
-      <br>
-      <ion-item lines="none">
-        <ion-input type="number" placeholder="       Enter Phone Number">
-          <ion-icon class="icon" name="phone-portrait"></ion-icon>
-        </ion-input>
-      </ion-item>
-      <ion-label>Data Of Birth</ion-label>
-      <br>
-      <br>
-      <ion-item lines="none">
-        <ion-input type="number" placeholder="       DD/MM/YYYY">
-          <ion-icon class="icon" name="calendar"></ion-icon>
-        </ion-input>
-      </ion-item>
-      <ion-label>Choose image profile</ion-label>
-      <br>
-      <br>
-      <ion-item lines="none">
-        <ion-input type="file" placeholder="       DD/MM/YYYY">
-          
-        </ion-input>
-      </ion-item>
-      <ion-button class="login"> <strong> Create Account</strong></ion-button>
-    </div>
+        <ion-list>
+          <ion-radio-group value="{{colors[0].id}}">
+            <ion-list-header>
+              <ion-label>Select Color</ion-label>
+            </ion-list-header>
+        
+            <ion-item *ngFor="let color of colors"  >
+              <ion-label>
+                <div [style.backgroundColor]=" color.color" style="height:10px ;" >
+                </div>
+              </ion-label>
+              <ion-radio slot="start" value="{{color.id}}"></ion-radio>
+            </ion-item>
+        
+  
+          </ion-radio-group>
+        </ion-list>
+        
+        <ion-label>Choose image profile</ion-label>
+        <br>
+        <br>
+        <ion-item lines="none">
+          <ion-input type="file"  >
+            
+          </ion-input>
+        </ion-item>
+        <ion-button class="login"> <strong> Create Account</strong></ion-button>
+      </div>
+    </form>
   </ion-content>

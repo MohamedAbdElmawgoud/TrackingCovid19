@@ -49,13 +49,13 @@ export class GogleMapComponent implements OnInit {
     
     this.platform.ready();
     this.route =  await this.api.getPolylines();
-   console.log(this.route);
+  //  console.log(this.route);
     this.loadMap();
     
     this.route.forEach(element => {
      console.log(element);
    });
-    console.log(this.routePoints);
+    // console.log(this.routePoints);
     
   }
  
