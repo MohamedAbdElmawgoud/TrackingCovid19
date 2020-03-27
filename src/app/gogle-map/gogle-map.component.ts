@@ -63,11 +63,11 @@ export class GogleMapComponent implements OnInit {
   this.lng.push(element.ele.longitude)
   
  });
- this.routeP();
+
    //console.log(this.lat);
     this.loadMap();
     
-   
+    this.routeP();
     
   }
  
