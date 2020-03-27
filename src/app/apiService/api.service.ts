@@ -23,7 +23,7 @@ export class ApiService {
   }
   async getPolylines() {
 
-    let data = (<any>await this.httpClient.get(' http://waleedser-001-site1.atempurl.com/api/polylines/get').toPromise());
+    let data = (<any>await this.httpClient.get('http://waleedser-001-site1.atempurl.com/api/polylines').toPromise());
     return data.map(ele => {
       // console.log(ele)
       return {

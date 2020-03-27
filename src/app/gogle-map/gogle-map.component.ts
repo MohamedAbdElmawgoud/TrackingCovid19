@@ -35,6 +35,7 @@ export class GogleMapComponent implements OnInit {
   poly = [];
   lat= [];
   lng=[];
+  color=[];
   route: any;
 
   routePoints= [];
@@ -61,13 +62,13 @@ export class GogleMapComponent implements OnInit {
  this.poly.forEach(element => {
   this.lat.push(element.ele.latitude);
   this.lng.push(element.ele.longitude)
-  
+  this.color.push(element.ele.color.colorHex);
  });
 
-   //console.log(this.lat);
+ 
     this.loadMap();
-    
     this.routeP();
+  
     
   }
  
@@ -88,17 +89,22 @@ export class GogleMapComponent implements OnInit {
   }
  
   routeP(){
-    for (let i = 0; i < this.lat.length && this.lng.length; i++) {
-      console.log(this.lat[i]);
+    for (let i = 0; i < this.lat.length-1 && this.lng.length-1; i++) {
+      console.log(this.color[i]);
       
      this.routePointss.push(  {
         lat: this.lat[i],
         lng: this.lng[i]
       },
+      {
+        lat: this.lat[i]+(0.000009000009*10),
+        lng: this.lng[i]+(0.000009000009*10)
+      },
+      
     );
-   
+    this.addPlolyLine(this.routePointss ,this.color[i])
     }
-    this.addPlolyLine(this.routePointss ,'#D35228');
+    
     console.log('this is route ', this.routePointss);
  }
   goToMyLocation(){

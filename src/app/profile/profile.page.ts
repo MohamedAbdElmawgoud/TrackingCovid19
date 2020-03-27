@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from "src/app/apiService/api.service";
 
 @Component({
   selector: 'app-profile',
@@ -6,11 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
+test;
+  constructor(private api: ApiService,) { }
 
-  constructor() { }
-
-  ngOnInit() {
-    
+  async ngOnInit() {
+    this.test=await this.api.getUpdateStatus( {
+        "userId": 1,
+        "latitude": 30.29, //Double
+        "longitude": 30.011, //Double
+        "colorId": 1
+      });
+    console.log(this.test)
   }
 
 }
