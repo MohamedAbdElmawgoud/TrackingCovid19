@@ -10,12 +10,22 @@ export class ProfilePage implements OnInit {
 user;
 gender;
 img;
+status;
   constructor(private api: ApiService,) { }
 
   async ngOnInit() {
     this.user=await this.api.getUser(3);
-    console.log(this.user.imageName)
-    this.img = await this.api.getImgUser(this.user.imageName);
+    console.log(this.user)
+    this.status = await this.api.getUpdateStatus(
+      {
+      userId: 1,
+      latitude: 30.1, //Double
+      longitude: 31.0, //Double
+      colorId: 2
+    }
+    );
+    console.log(this.status)
+    // this.img = await this.api.getImgUser(this.user.imageName);
   if( !this.user.gender){
     this.gender = 'Male'
   } 
