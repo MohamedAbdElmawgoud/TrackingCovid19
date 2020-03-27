@@ -8,6 +8,7 @@ import { ProfilePageRoutingModule } from './profile-routing.module';
 
 import { ProfilePage } from './profile.page';
 import { TranslateModule } from  '@ngx-translate/core';
+import { HeaderModule } from '../header/header.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { TranslateModule } from  '@ngx-translate/core';
     FormsModule,
     IonicModule,
     TranslateModule,
-    ProfilePageRoutingModule
+    ProfilePageRoutingModule,
+    HeaderModule
   ],
   declarations: [ProfilePage]
 })
