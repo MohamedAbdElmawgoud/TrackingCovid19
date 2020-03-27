@@ -4,10 +4,10 @@
 
 <ion-content [fullscreen]="true">
     
-        <ul class="nav nav-tabs">
-            <div class="btns" >
-                <button (click)="changeScreen(0)" >Developer</button>
-                <button (click)="changeScreen(1)">contact us</button>
+        <ul class="nav nav-tabs"> 
+            <div class="btns" > 
+                <button (click)="changeScreen(0)" >{{'Developer'| translate}}</button>
+                <button (click)="changeScreen(1)">{{'contact us'| translate}}</button>
             </div>
               </ul>
        
@@ -28,7 +28,7 @@
         <div class="contact">
             <ion-card class="card">
                 <h2>
-                 social media
+                        {{'social media'| translate}}
                 </h2>
                 <ion-icon class="face" name="logo-facebook"></ion-icon>
                 <ion-icon name="logo-linkedin" style="color:#0C89BF"></ion-icon>
@@ -39,7 +39,7 @@
             <hr>
             <ion-card class="card">
                     <h2>
-                     Share App
+                            {{'Share App'| translate}}
                     </h2>
                     <ion-icon class="face" name="logo-facebook"></ion-icon>
                     <ion-icon name="logo-linkedin" style="color:#0C89BF"></ion-icon>
@@ -51,7 +51,7 @@
         <form [formGroup]="contactForm">
                 <div class="parent">
                         <br>
-                        <ion-label>name</ion-label>
+                        <ion-label>{{'name'| translate}}</ion-label>
                         <br>
                         <br>
                         <ion-item lines="none">
@@ -59,8 +59,8 @@
                           </ion-input>
                         </ion-item>
 
-                      
-                        <ion-label>Email</ion-label>
+                        
+                        <ion-label>{{'Email'| translate}}</ion-label>
                         <br>
                         <br>
                         <ion-item lines="none">
@@ -70,7 +70,7 @@
                                
                         </ion-item>
                         
-                        <ion-label>phone</ion-label>
+                        <ion-label>{{'phone'| translate}}</ion-label>
                         <br>
                         <br>
                         <ion-item lines="none">
@@ -78,9 +78,9 @@
                                   
                                 </ion-input>
                      </ion-item>
-
                     
-                     <ion-label>message</ion-label>
+                    
+                     <ion-label>{{'message'| translate}}</ion-label>
                      <br>
                      <br>
                      <ion-item lines="none">
@@ -90,7 +90,7 @@
                     </ion-item>
                   
                     
-                        <ion-button class="login" (click)="submit()"> <strong> submit</strong></ion-button>
+                        <ion-button class="login" (click)="submit()"> <strong>{{'submit'| translate}}</strong></ion-button>
                       </div>
         </form>
         
@@ -115,7 +115,7 @@
                     <div class="contact">
                         <ion-card class="card">
                             <h2>
-                             Social Media
+                                    {{'social media'| translate}}
                             </h2>
                             <ion-icon class="face" name="logo-facebook"></ion-icon>
                             <ion-icon name="logo-linkedin" style="color:#0C89BF"></ion-icon>

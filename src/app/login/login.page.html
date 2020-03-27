@@ -3,14 +3,14 @@
 
 
   <ion-card-content>
-    login Form
+      {{'login Form'| translate}}
     <!-- <ion-icon name="create" slot="create"></ion-icon> -->
   </ion-card-content>
 <div class="parent">
   <form [formGroup]="loginForm">
 
 
-    <ion-label>Email</ion-label>
+    <ion-label>{{'Email'| translate}}</ion-label>
     <br>
     <br>
     <ion-item lines="none">
@@ -18,7 +18,7 @@
         <ion-icon class="icon" name="mail"></ion-icon>
       </ion-input>
     </ion-item>
-    <ion-label>password</ion-label>
+    <ion-label>{{'password'| translate}}</ion-label>
     <br>
     <br>
     <ion-item lines="none">
@@ -27,7 +27,7 @@
       </ion-input>
     </ion-item>
 
-    <ion-button class="login" (click)="submit()"> <strong> login</strong></ion-button>
+    <ion-button class="login" (click)="submit()"> <strong> {{'login'| translate}}</strong></ion-button>
 
 </form>
 </div>

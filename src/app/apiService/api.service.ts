@@ -18,7 +18,7 @@ export class ApiService {
       //   "colorId": 1
       // }
     data
-    ).toPromise()).data;
+    ).toPromise());
 
   }
   async getPolylines() {

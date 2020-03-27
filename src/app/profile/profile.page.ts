@@ -15,7 +15,7 @@ status;
 
   async ngOnInit() {
     this.user=await this.api.getUser(3);
-    console.log(this.user)
+    
     this.status = await this.api.getUpdateStatus(
       {
       userId: 1,
@@ -24,7 +24,7 @@ status;
       colorId: 2
     }
     );
-    console.log(this.status)
+    console.log('status is ', this.status)
     // this.img = await this.api.getImgUser(this.user.imageName);
   if( !this.user.gender){
     this.gender = 'Male'
@@ -32,7 +32,7 @@ status;
   else{
     this.gender = 'Female'
   }
-    console.log(this.user)
+    
   }
 
 }

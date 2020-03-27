@@ -97,8 +97,8 @@ export class GogleMapComponent implements OnInit {
         lng: this.lng[i]
       },
       {
-        lat: this.lat[i]+(0.000009000009*10),
-        lng: this.lng[i]+(0.000009000009*10)
+        lat: this.lat[i]+(0.00000900900900900901*10),
+        lng: this.lng[i]+(0.00000900900900900901*10)
       },
       
     ];
@@ -116,11 +116,6 @@ export class GogleMapComponent implements OnInit {
       let lat = location.latLng.lat;
       let lng = location.latLng.lng;
     
-      
-    
-   
-      
-           
             
        
       // Move the map camera to the location with animation
@@ -185,6 +180,7 @@ export class GogleMapComponent implements OnInit {
     });
     toast.present();
   }
+  
 //  getMyLocation() {
 //   this.geo.getCurrentPosition({
     

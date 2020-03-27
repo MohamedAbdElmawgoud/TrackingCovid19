@@ -5,8 +5,8 @@
 <ion-content [fullscreen]="true">
     <ul class="nav nav-tabs">
         <div class="btns" >
-            <button (click)="changeScreen(0)" >App use</button>
-            <button (click)="changeScreen(1)">Blog</button>
+            <button (click)="changeScreen(0)" >{{'App use'|translate}}</button>
+            <button (click)="changeScreen(1)">{{'Blog'|translate}}</button>
         </div>
           </ul>
 
@@ -43,6 +43,6 @@
   </div>
   <div class="Blog" *ngIf="!screen">
     
-    <h1>appUse</h1>
+    <h1>{{'App use'|translate}}</h1>
   </div>
 </ion-content>

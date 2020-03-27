@@ -10,7 +10,7 @@
     <div class="parent">
       <br>
       <br>
-      <ion-label>First Name</ion-label>
+      <ion-label>{{'First Name'| translate}}</ion-label>
       <br>
       <br>
       <ion-item lines="none">
@@ -19,7 +19,7 @@
         </ion-input>
       </ion-item>
 
-      <ion-label>Last Name</ion-label>
+      <ion-label>{{'Last Name'| translate}}</ion-label>
       <br>
       <br>
       <ion-item lines="none">
@@ -28,7 +28,7 @@
         </ion-input>
       </ion-item>
 
-      <ion-label>Email</ion-label>
+      <ion-label>{{'Email'| translate}}</ion-label>
       <br>
       <br>
       <ion-item lines="none">
@@ -36,7 +36,7 @@
           <ion-icon class="icon" name="mail"></ion-icon>
         </ion-input>
       </ion-item>
-      <ion-label>password</ion-label>
+      <ion-label>{{'password'| translate}}</ion-label>
       <br>
       <br>
       <ion-item lines="none">
@@ -45,7 +45,7 @@
         </ion-input>
       </ion-item>
 
-      <ion-label>home address</ion-label>
+      <ion-label>{{'home address'| translate}}</ion-label>
       <br>
       <br>
       <ion-item lines="none">
@@ -54,7 +54,7 @@
         </ion-input>
       </ion-item>
 
-      <ion-label>work address</ion-label>
+      <ion-label>{{'work address'| translate}}</ion-label>
       <br>
       <br>
       <ion-item lines="none">
@@ -65,10 +65,10 @@
 
 
       <ion-item>
-        <ion-label>Gender</ion-label>
+        <ion-label>{{'Gender'| translate}}</ion-label>
         <ion-select formControlName="gender" placeholder="Select One">
-          <ion-select-option value="Female">Female</ion-select-option>
-          <ion-select-option value="Male">Male</ion-select-option>
+          <ion-select-option value="Female">{{'Female'| translate}}</ion-select-option>
+          <ion-select-option value="Male">{{'Male'| translate}}</ion-select-option>
         </ion-select>
       </ion-item>
 
@@ -76,7 +76,7 @@
       <ion-list>
         <ion-radio-group formControlName="colorId" value="{{colors[0].id}}">
           <ion-list-header>
-            <ion-label>Select Color</ion-label>
+            <ion-label> {{'Select Color'| translate}}</ion-label>
           </ion-list-header>
 
           <ion-item *ngFor="let color of colors">
@@ -92,7 +92,7 @@
       </ion-list>
       <br>
 
-      <ion-label>Choose image profile</ion-label>
+      <ion-label>{{'Choose image profile'| translate}}</ion-label>
       <br>
       <br>
       <ion-item lines="none">
@@ -100,7 +100,7 @@
 
         </ion-input>
       </ion-item>
-      <ion-button class="login" (click)="submit()"> <strong> Create Account</strong></ion-button>
+      <ion-button class="login" (click)="submit()"> <strong> {{'Create Account'| translate}}</strong></ion-button>
     </div>
   </form>
 </ion-content>
