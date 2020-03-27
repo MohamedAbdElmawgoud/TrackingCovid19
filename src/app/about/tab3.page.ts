@@ -11,7 +11,7 @@ import Swal from 'sweetalert2'
 })
 export class Tab3Page {
   contant: any;
-  appInfo;
+  appInfo = [];
   screen = true;
   contactForm = new FormGroup({
     'name': new FormControl('', [Validators.required]),

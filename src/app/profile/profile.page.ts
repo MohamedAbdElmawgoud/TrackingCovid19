@@ -7,7 +7,7 @@ import { ApiService } from "src/app/apiService/api.service";
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-user;
+user : any= {};
 gender;
 img;
 status;
