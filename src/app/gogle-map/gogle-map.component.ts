@@ -31,6 +31,10 @@ const icon = {
   styleUrls: ['./gogle-map.component.scss'],
 })
 export class GogleMapComponent implements OnInit {
+  routePointss= [];
+  poly = [];
+  lat= [];
+  lng=[];
   route: any;
 
   routePoints= [];
@@ -49,13 +53,21 @@ export class GogleMapComponent implements OnInit {
     
     this.platform.ready();
     this.route =  await this.api.getPolylines();
-  //  console.log(this.route);
+  // console.log(this.route);
+   this.route.forEach(element => {
+    this.poly.push(element);
+   
+  });
+ this.poly.forEach(element => {
+  this.lat.push(element.ele.latitude);
+  this.lng.push(element.ele.longitude)
+  
+ });
+
+   //console.log(this.lat);
     this.loadMap();
     
-    this.route.forEach(element => {
-     console.log(element);
-   });
-    // console.log(this.routePoints);
+    this.routeP();
     
   }
  
@@ -75,7 +87,20 @@ export class GogleMapComponent implements OnInit {
     
   }
  
- 
+  routeP(){
+    for (let i = 0; i < this.lat.length && this.lng.length; i++) {
+      console.log(this.lat[i]);
+      
+     this.routePointss.push(  {
+        lat: this.lat[i],
+        lng: this.lng[i]
+      },
+    );
+   
+    }
+    this.addPlolyLine(this.routePointss ,'#D35228');
+    console.log('this is route ', this.routePointss);
+ }
   goToMyLocation(){
     this.map.clear();
  
@@ -89,39 +114,9 @@ export class GogleMapComponent implements OnInit {
     
    
       
-            this.addPlolyLine(this.routePoints ,'#173F1B');
-
-            let routePointss = [ {
-              lat: (30.080750600500002)+(0.000009000009*50),
-              lng: 31.261069100700004+(0.000009000009*50)
-            },
-            {
-              lat: 30.080759600510902+(0.000009000009*100) ,
-              lng: 31.261269100709004+(0.000009000009*100)
-            }
-          ]
-          this.addPlolyLine(routePointss ,'#D35228');
-
-          routePointss = [ {
-            lat: (30.080750600500002)+(0.000009000009*10),
-            lng: 31.261069100700004+(0.000009000009*10)
-          },
-          {
-            lat: 30.080759600510902+(0.000009000009*80) ,
-            lng: 31.261269100709004+(0.000009000009*80)
-          }
-        ]
-        this.addPlolyLine(routePointss ,'#2843D3');
-        routePointss = [ {
-          lat: (30.080750600500002)+(0.000009000009*660),
-          lng: 31.261069100700004+(0.000009000009*660)
-        },
-        {
-          lat: 30.080759600510902+(0.000009000009*550) ,
-          lng: 31.261269100709004+(0.000009000009*500)
-        }
-      ]
-      this.addPlolyLine(routePointss ,'#C6D328');
+           
+            
+       
       // Move the map camera to the location with animation
       this.map.animateCamera({
         target: location.latLng,
