@@ -1,0 +1,34 @@
+<ion-content>
+
+
+
+  <ion-card-content>
+    login Form
+    <!-- <ion-icon name="create" slot="create"></ion-icon> -->
+  </ion-card-content>
+<div class="parent">
+  <form [formGroup]="loginForm">
+
+
+    <ion-label>Email</ion-label>
+    <br>
+    <br>
+    <ion-item lines="none">
+      <ion-input formControlName="email" type="mail" >
+        <ion-icon class="icon" name="mail"></ion-icon>
+      </ion-input>
+    </ion-item>
+    <ion-label>password</ion-label>
+    <br>
+    <br>
+    <ion-item lines="none">
+      <ion-input formControlName="password" type="password" >
+        <ion-icon class="icon" name="mail"></ion-icon>
+      </ion-input>
+    </ion-item>
+
+    <ion-button class="login" (click)="submit()"> <strong> login</strong></ion-button>
+
+</form>
+</div>
+</ion-content>
