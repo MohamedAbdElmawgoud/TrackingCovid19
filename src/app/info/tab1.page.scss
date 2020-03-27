@@ -3,7 +3,7 @@ ion-content{
   
 }
 ion-card{
-  --background:url('https://icdn6.digitaltrends.com/image/digitaltrends/hp-omen-x-2s-hero-382x238-c.jpg') 0 0/100% 100% no-repeat;
+  // --background:url('https://icdn6.digitaltrends.com/image/digitaltrends/hp-omen-x-2s-hero-382x238-c.jpg') 0 0/100% 100% no-repeat;
   height: 260px;
   width: 90%;
   color: white;
@@ -17,12 +17,16 @@ color: black;
 
 }
 button{
-  margin: 15px;
-  margin-left: 40%;
-  margin-right: 40%;
+ 
   background: #454444;
-  padding: 5px;
+  padding: 8px;
   color: white
+}
+.btns{
+  display: flex; 
+  width:100%;
+   margin-left:24%;
+    margin-right: 24%;
 }
 ion-card-title{
   padding: 3px;
@@ -31,4 +35,7 @@ img{
   width: 27px;
   height: 27px;
   margin-right: 7px;
+}
+ion-card-content{
+  color: black;
 }

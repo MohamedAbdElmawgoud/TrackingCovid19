@@ -3,8 +3,14 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-        <button (click)="changeScreen(0)" *ngIf="screen">share app</button>
-        <button (click)="changeScreen(1)" *ngIf="!screen">contact us</button>
+    
+        <ul class="nav nav-tabs">
+            <div class="btns" >
+                <button (click)="changeScreen(0)" >Developer</button>
+                <button (click)="changeScreen(1)">contact us</button>
+            </div>
+              </ul>
+       
     <div *ngIf="screen">
         <div>
         <ion-card class="info">
@@ -22,7 +28,7 @@
         <div class="contact">
             <ion-card class="card">
                 <h2>
-                contact us on social media
+                 social media
                 </h2>
                 <ion-icon class="face" name="logo-facebook"></ion-icon>
                 <ion-icon name="logo-linkedin" style="color:#0C89BF"></ion-icon>
@@ -30,7 +36,64 @@
                 <ion-icon name="logo-whatsapp" style="color:#0CBF59"></ion-icon>
                 <ion-icon name="mail" style="color:#085193"></ion-icon>
             </ion-card>
+            <hr>
+            <ion-card class="card">
+                    <h2>
+                     Share App
+                    </h2>
+                    <ion-icon class="face" name="logo-facebook"></ion-icon>
+                    <ion-icon name="logo-linkedin" style="color:#0C89BF"></ion-icon>
+                    <ion-icon name="logo-twitter" style="color:#0CA6BF"></ion-icon>
+                    <ion-icon name="logo-whatsapp" style="color:#0CBF59"></ion-icon>
+                    <ion-icon name="mail" style="color:#085193"></ion-icon>
+                </ion-card>
         </div>
+        <form [formGroup]="contactForm">
+                <div class="parent">
+                        <br>
+                        <ion-label>name</ion-label>
+                        <br>
+                        <br>
+                        <ion-item lines="none">
+                          <ion-input formControlName="name" type="text">
+                          </ion-input>
+                        </ion-item>
+
+                      
+                        <ion-label>Email</ion-label>
+                        <br>
+                        <br>
+                        <ion-item lines="none">
+                                <ion-input formControlName="mail" type="mail">
+                                 
+                                </ion-input>
+                               
+                        </ion-item>
+                        
+                        <ion-label>phone</ion-label>
+                        <br>
+                        <br>
+                        <ion-item lines="none">
+                                <ion-input formControlName="phone" type="number">
+                                  
+                                </ion-input>
+                     </ion-item>
+
+                    
+                     <ion-label>message</ion-label>
+                     <br>
+                     <br>
+                     <ion-item lines="none">
+                            <ion-input formControlName="message" type="text">
+                              
+                            </ion-input>
+                    </ion-item>
+                  
+                    
+                        <ion-button class="login" (click)="submit()"> <strong> submit</strong></ion-button>
+                      </div>
+        </form>
+        
     </div>
 
     </div>
@@ -61,19 +124,8 @@
                             <ion-icon name="mail" style="color:#085193"></ion-icon>
                         </ion-card>
                     </div>
-                    <hr>
-                    <div>
-                            <ion-card class="card">
-                            <h2>
-                             Share App
-                            </h2>
-                            <ion-icon class="face" name="logo-facebook"></ion-icon>
-                            <ion-icon name="logo-linkedin" style="color:#0C89BF"></ion-icon>
-                            <ion-icon name="logo-twitter" style="color:#0CA6BF"></ion-icon>
-                            <ion-icon name="logo-whatsapp" style="color:#0CBF59"></ion-icon>
-                            <ion-icon name="mail" style="color:#085193"></ion-icon>
-                        </ion-card>
-                    </div>
+                    
+                    
 
                 </div>
                

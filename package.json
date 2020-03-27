@@ -15,7 +15,7 @@
   "dependencies": {
     "@angular/common": "~8.2.14",
     "@angular/core": "~8.2.14",
-    "@angular/forms": "~8.2.14",
+    "@angular/forms": "^8.2.14",
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
@@ -39,6 +39,7 @@
     "core-js": "^2.5.4",
     "es6-promise-plugin": "^4.2.2",
     "rxjs": "~6.5.1",
+    "sweetalert2": "^9.10.6",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },

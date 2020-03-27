@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
+import { ApiService } from "src/app/apiService/api.service";
 
 @Component({
   selector: 'app-tab1',
@@ -6,8 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  posts: any;
+
+
+  async ngOnInit() {
+    this.posts=await this.api.posts(2)
+    console.log(this.posts)
+  }
+
+
 screen=true;
-  constructor() {}
+  constructor(private api: ApiService,) {}
   changeScreen(status:number){
  if(status == 0){
    this.screen= false;

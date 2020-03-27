@@ -3,25 +3,29 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <button (click)="changeScreen(0)" *ngIf="screen">appUse</button>
-  <button (click)="changeScreen(1)" *ngIf="!screen">Blog</button>
+    <ul class="nav nav-tabs">
+        <div class="btns" >
+            <button (click)="changeScreen(0)" >App use</button>
+            <button (click)="changeScreen(1)">Blog</button>
+        </div>
+          </ul>
 
   <div class="appUse" *ngIf="screen">
-  <ion-card>
+  <ion-card *ngFor="let post of posts">
     <ion-card-content>
-      iThe articles in English grammar are the and a/an, and in certain contexts some. "An" and "a" are modern forms of the Old English "an", which in Anglian dialects was the number "one" (compare "on" in Saxon dialects)
+     {{post.content}}
     </ion-card-content>
     <ion-card-header>
         
         <ion-card-title>
-            <img src="https://cdn3.iconfinder.com/data/icons/3d-printing-icon-set/512/User.png">
+            <img src="{{post.imageName}}">
             
-          mobile developer</ion-card-title>
+            {{post.name}}</ion-card-title>
       </ion-card-header>
     
    
   </ion-card>  
-  <ion-card>
+  <!-- <ion-card>
       <ion-card-content>
         iThe articles in English grammar are the and a/an, and in certain contexts some. "An" and "a" are modern forms of the Old English "an", which in Anglian dialects was the number "one" (compare "on" in Saxon dialects)
       </ion-card-content>
@@ -33,7 +37,7 @@
         </ion-card-header>
       
      
-    </ion-card>  
+    </ion-card>   -->
 
     
   </div>

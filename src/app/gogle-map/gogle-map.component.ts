@@ -89,10 +89,10 @@ export class GogleMapComponent implements OnInit {
   }
  
   routeP(){
-    for (let i = 0; i < this.lat.length-1 && this.lng.length-1; i++) {
+    for (let i = 0; i < this.lat.length && this.lng.length; i++) {
       console.log(this.color[i]);
       
-     this.routePointss.push(  {
+     this.routePointss= [  {
         lat: this.lat[i],
         lng: this.lng[i]
       },
@@ -101,7 +101,7 @@ export class GogleMapComponent implements OnInit {
         lng: this.lng[i]+(0.000009000009*10)
       },
       
-    );
+    ];
     this.addPlolyLine(this.routePointss ,this.color[i])
     }
     
