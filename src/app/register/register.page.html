@@ -1,97 +1,106 @@
 <ion-content>
-  
-  
-  
-    <ion-card-content>
-      Register Form
-      <!-- <ion-icon name="create" slot="create"></ion-icon> -->
-    </ion-card-content>
-    <form  [formGroup]="registerForm" >
-      <div class="parent">
-        <br>
-        <br>
-        <ion-label>First Name</ion-label>
-        <br>
-        <br>
-        <ion-item lines="none">
-          <ion-input  formControllerName="firstName" type="text" placeholder="       Enter User Name">
-            <ion-icon class="icon" name="person"></ion-icon>
-          </ion-input>
-        </ion-item>
-  
-        <ion-label>Last Name</ion-label>
-        <br>
-        <br>
-        <ion-item lines="none">
-          <ion-input type="text" placeholder="       Enter User Name">
-            <ion-icon class="icon" name="person"></ion-icon>
-          </ion-input>
-        </ion-item>
-    
-        <ion-label>Email</ion-label>
-        <br>
-        <br>
-        <ion-item lines="none">
-          <ion-input type="mail" placeholder="       Enter Email">
-            <ion-icon class="icon" name="mail"></ion-icon>
-          </ion-input>
-        </ion-item>
-  
-        <ion-label>home address</ion-label>
-        <br>
-        <br>
-        <ion-item lines="none">
-          <ion-input type="mail" placeholder="       Enter Email">
-            <ion-icon class="icon" name="mail"></ion-icon>
-          </ion-input>
-        </ion-item>
-  
-        <ion-label>work address</ion-label>
-        <br>
-        <br>
-        <ion-item lines="none">
-          <ion-input type="mail" placeholder="       Enter Email">
-            <ion-icon class="icon" name="mail"></ion-icon>
-          </ion-input>
-        </ion-item>
-    
-    
-        <ion-item>
-          <ion-label>Gender</ion-label>
-          <ion-select placeholder="Select One">
-            <ion-select-option value="Female">Female</ion-select-option>
-            <ion-select-option value="Male">Male</ion-select-option>
-          </ion-select>
-        </ion-item>
-  
-  
-        <ion-list>
-          <ion-radio-group value="{{colors[0].id}}">
-            <ion-list-header>
-              <ion-label>Select Color</ion-label>
-            </ion-list-header>
-        
-            <ion-item *ngFor="let color of colors"  >
-              <ion-label>
-                <div [style.backgroundColor]=" color.color" style="height:10px ;" >
-                </div>
-              </ion-label>
-              <ion-radio slot="start" value="{{color.id}}"></ion-radio>
-            </ion-item>
-        
-  
-          </ion-radio-group>
-        </ion-list>
-        
-        <ion-label>Choose image profile</ion-label>
-        <br>
-        <br>
-        <ion-item lines="none">
-          <ion-input type="file"  >
-            
-          </ion-input>
-        </ion-item>
-        <ion-button class="login"> <strong> Create Account</strong></ion-button>
-      </div>
-    </form>
-  </ion-content>
+
+
+
+  <ion-card-content>
+    Register Form
+    <!-- <ion-icon name="create" slot="create"></ion-icon> -->
+  </ion-card-content>
+  <form [formGroup]="registerForm">
+    <div class="parent">
+      <br>
+      <br>
+      <ion-label>First Name</ion-label>
+      <br>
+      <br>
+      <ion-item lines="none">
+        <ion-input formControlName="firstName" type="text">
+          <ion-icon class="icon" name="person"></ion-icon>
+        </ion-input>
+      </ion-item>
+
+      <ion-label>Last Name</ion-label>
+      <br>
+      <br>
+      <ion-item lines="none">
+        <ion-input formControlName="lastName" type="text" >
+          <ion-icon class="icon" name="person"></ion-icon>
+        </ion-input>
+      </ion-item>
+
+      <ion-label>Email</ion-label>
+      <br>
+      <br>
+      <ion-item lines="none">
+        <ion-input formControlName="email" type="mail" >
+          <ion-icon class="icon" name="mail"></ion-icon>
+        </ion-input>
+      </ion-item>
+      <ion-label>password</ion-label>
+      <br>
+      <br>
+      <ion-item lines="none">
+        <ion-input formControlName="password" type="password" >
+          <ion-icon class="icon" name="mail"></ion-icon>
+        </ion-input>
+      </ion-item>
+
+      <ion-label>home address</ion-label>
+      <br>
+      <br>
+      <ion-item lines="none">
+        <ion-input formControlName="address" type="mail" >
+          <ion-icon class="icon" name="mail"></ion-icon>
+        </ion-input>
+      </ion-item>
+
+      <ion-label>work address</ion-label>
+      <br>
+      <br>
+      <ion-item lines="none">
+        <ion-input formControlName="workAddress" type="mail" >
+          <ion-icon class="icon" name="mail"></ion-icon>
+        </ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label>Gender</ion-label>
+        <ion-select formControlName="gender" placeholder="Select One">
+          <ion-select-option value="Female">Female</ion-select-option>
+          <ion-select-option value="Male">Male</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+      <ion-list>
+        <ion-radio-group formControlName="colorId" value="{{colors[0].id}}">
+          <ion-list-header>
+            <ion-label>Select Color</ion-label>
+          </ion-list-header>
+
+          <ion-item *ngFor="let color of colors">
+            <ion-label>
+              <div [style.backgroundColor]=" color.color" style="height:10px ;">
+              </div>
+            </ion-label>
+            <ion-radio slot="start" value="{{color.id}}"></ion-radio>
+          </ion-item>
+
+
+        </ion-radio-group>
+      </ion-list>
+      <br>
+
+      <ion-label>Choose image profile</ion-label>
+      <br>
+      <br>
+      <ion-item lines="none">
+        <ion-input type="file" (input)="uploadFile($event)" >
+
+        </ion-input>
+      </ion-item>
+      <ion-button class="login" (click)="submit()"> <strong> Create Account</strong></ion-button>
+    </div>
+  </form>
+</ion-content>

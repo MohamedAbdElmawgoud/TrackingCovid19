@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { COLORS_ARRAY } from '../Shared/colers'
+import { ApiService } from '../apiService/api.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -16,11 +17,25 @@ export class RegisterPage implements OnInit {
     "email": new FormControl('', Validators.required),
     "password": new FormControl('', Validators.required),
     "colorId": new FormControl('', Validators.required)
-  })
+  });
+  file;
   colors = COLORS_ARRAY
-  constructor() { }
+  constructor(private apiService : ApiService) { }
 
   ngOnInit() {
   }
+ async submit(){
+    let params = {...this.registerForm.value , imageName : this.file};
+    let form = new FormData();
+    Object.keys(params).forEach(ele => {
 
+            form.append(ele, params[ele])
+
+    })
+    await this.apiService.register(form)
+  }
+  uploadFile($event){
+    this.file = $event.target.files[0];
+    
+  }
 }
