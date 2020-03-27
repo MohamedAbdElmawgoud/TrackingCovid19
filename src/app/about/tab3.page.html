@@ -16,11 +16,11 @@
         <ion-card class="info">
 
             <ion-card-title class="title">
-             Map Appliction
+             {{appInfo[1].name}}
             </ion-card-title>
             <ion-card-subtitle>
-                    apps stand out among the others, boost visibility, improve conversion rate and increase the number of installs.
-            </ion-card-subtitle>
+                    {{appInfo[1].content}}
+           </ion-card-subtitle>
         </ion-card>
     </div>
     <div class="container ">
@@ -64,7 +64,7 @@
                         <br>
                         <br>
                         <ion-item lines="none">
-                                <ion-input formControlName="mail" type="mail">
+                                <ion-input formControlName="email" type="mail">
                                  
                                 </ion-input>
                                
@@ -84,7 +84,7 @@
                      <br>
                      <br>
                      <ion-item lines="none">
-                            <ion-input formControlName="message" type="text">
+                            <ion-input formControlName="content" type="text">
                               
                             </ion-input>
                     </ion-item>
@@ -103,10 +103,10 @@
                     <ion-card class="info">
             
                         <ion-card-title class="title">
-                         About Application
+                                {{appInfo[0].name}}
                         </ion-card-title>
                         <ion-card-subtitle>
-                                Application software (app for short) is a program or group of programs designed for end users. Examples of an application include a word processor
+                                {{appInfo[0].content}}
                         </ion-card-subtitle>
                     </ion-card>
                 </div>

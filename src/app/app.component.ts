@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -9,6 +9,7 @@ import { BackgroundGeolocation,
     BackgroundGeolocationResponse } from '@ionic-native/background-geolocation/ngx';
 import { ToastController } from "@ionic/angular";
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { RouterOutlet, Router, ActivationStart } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -16,9 +17,13 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  @ViewChild(RouterOutlet) outlet: RouterOutlet;
+  
   textDir: string;
   location: any = [];
-  constructor( public toastCtrl: ToastController,
+  constructor( 
+    private router: Router,
+    public toastCtrl: ToastController,
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
@@ -46,7 +51,12 @@ export class AppComponent {
     });
   
   }
-
+  ngOnInit(): void {
+    this.router.events.subscribe(e => {
+      if (e instanceof ActivationStart && e.snapshot.outlet === "administration")
+        this.outlet.deactivate();
+    });
+  }
   
   Translate(type: string){
     

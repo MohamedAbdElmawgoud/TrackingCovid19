@@ -8,10 +8,12 @@ import { ApiService } from "src/app/apiService/api.service";
 })
 export class Tab1Page {
   posts: any;
+  img;
 
 
   async ngOnInit() {
-    this.posts=await this.api.posts(2)
+    this.posts=await this.api.posts(2);
+    this.img= await this.api.getImgPost(this.posts.imageName)
     console.log(this.posts)
   }
 

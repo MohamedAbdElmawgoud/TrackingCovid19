@@ -51,6 +51,15 @@ export class ApiService {
   return (<any>await this.httpClient.get('http://waleedser-001-site1.atempurl.com/api/users').toPromise());
 
   }
+  async getImgUser(name){
+    return (<any>await this.httpClient.get(`http://waleedser-001-site1.atempurl.com/images/users/`+name).toPromise());
+    
+  }
+
+  async getImgPost(name){
+    return (<any>await this.httpClient.get(`http://waleedser-001-site1.atempurl.com/images/posts/`+name).toPromise());
+    
+  }
 
   async register(data){
      return (<any>await this.httpClient.post('http://waleedser-001-site1.atempurl.com/api/users/register' , data).toPromise());

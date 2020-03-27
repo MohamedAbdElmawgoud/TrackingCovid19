@@ -5,10 +5,10 @@
 <ion-content>
   <div>
   
-    <img src="https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg-1024x683.jpg">
+    <img src="{{img}}">
     <ion-card-content>
-      <h1>  Wonder Woman</h1>
-        <h5>22, Female</h5>
+      <h1>{{user.firstName}} {{user.lastName}}</h1>
+        <h5>22, {{gender}}</h5>
       </ion-card-content>
    
 <ion-card>
@@ -16,7 +16,7 @@
     
   <ion-card-title>
       <ion-icon name="briefcase"></ion-icon>
-    Mobile Developer</ion-card-title>
+    {{user.address}}</ion-card-title>
 </ion-card>
 
  
@@ -24,7 +24,7 @@
     <ion-card-title>
         <ion-icon name="bicycle" style="font-size: 27px"></ion-icon>
         
-      cairo area ,Egypt</ion-card-title>
+        {{user.email}}</ion-card-title>
   </ion-card>
 
 
@@ -33,7 +33,7 @@
     <ion-card-title>
         <ion-icon name="car" style="font-size: 27px"></ion-icon>
         
-      17 miles away
+        {{user.color.colorName}}
     </ion-card-title>
   </ion-card>
 
