@@ -8,7 +8,7 @@ import { BackgroundGeolocation,
     BackgroundGeolocationEvents, 
     BackgroundGeolocationResponse } from '@ionic-native/background-geolocation/ngx';
 import { ToastController } from "@ionic/angular";
-// import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -23,38 +23,38 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private backgroundGeolocation: BackgroundGeolocation,
-    // public translate:  TranslateService
+    public translate:  TranslateService
   )
   
   {
     
     this.initializeApp();
-    // const  currentLanguage  =  localStorage.getItem('lng') || 'en'
-    // this.Translate(currentLanguage);
+    const  currentLanguage  =  localStorage.getItem('lng') || 'en'
+    this.Translate(currentLanguage);
     
     
-    // this.translate.onLangChange.subscribe((event: LangChangeEvent) =>
-    // {
-    //   if(event.lang == 'ar')
-    //   {
-    //     this.textDir = 'rtl';
-    //   }
-    //   else
-    //   {
-    //     this.textDir = 'ltr';
-    //   }
-    // });
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) =>
+    {
+      if(event.lang == 'ar')
+      {
+        this.textDir = 'rtl';
+      }
+      else
+      {
+        this.textDir = 'ltr';
+      }
+    });
   
   }
 
   
-  // Translate(type: string){
+  Translate(type: string){
     
     
-  //     this.translate.use(type);// ar or en
+      this.translate.use(type);// ar or en
       
     
-  //   }
+    }
     
   
   initializeApp() {

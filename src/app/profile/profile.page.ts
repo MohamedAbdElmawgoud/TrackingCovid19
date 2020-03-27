@@ -11,12 +11,7 @@ test;
   constructor(private api: ApiService,) { }
 
   async ngOnInit() {
-    this.test=await this.api.getUpdateStatus( {
-        "userId": 1,
-        "latitude": 30.29, //Double
-        "longitude": 30.011, //Double
-        "colorId": 1
-      });
+    this.test=await this.api.contact()
     console.log(this.test)
   }
 

@@ -7,12 +7,14 @@ import { Tab2Page } from './tab2.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 import { GogleMapComponent } from '../gogle-map/gogle-map.component';
 import { GoogleMapsModule } from '../gogle-map/google-maps.module';
+import { TranslateModule } from  '@ngx-translate/core';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
+    TranslateModule,
     GoogleMapsModule,
     ExploreContainerComponentModule,
     RouterModule.forChild([{ path: '', component: Tab2Page }])

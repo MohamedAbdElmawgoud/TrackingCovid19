@@ -61,4 +61,7 @@ export class ApiService {
  async contactUs(data){
   (<any>await this.httpClient.post('http://waleedser-001-site1.atempurl.com/api/contactus' , data).toPromise());
 }
+async contact(){
+ return (<any>await this.httpClient.get('http://waleedser-001-site1.atempurl.com/api/contactus').toPromise());
+}
 }

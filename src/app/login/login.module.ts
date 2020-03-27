@@ -8,12 +8,14 @@ import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
 import { RegisterPageRoutingModule } from '../register/register-routing.module';
+import { TranslateModule } from  '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    TranslateModule,
     LoginPageRoutingModule,
     ReactiveFormsModule
   ],
