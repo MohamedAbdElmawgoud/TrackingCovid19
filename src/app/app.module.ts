@@ -14,6 +14,7 @@ import { HttpClientModule, HttpClient } from  '@angular/common/http';
 import { TranslateModule, TranslateLoader, TranslateService } from  '@ngx-translate/core';
 import { TranslateHttpLoader } from  '@ngx-translate/http-loader';
 import { HeaderModule } from "src/app/header/header.module";
+import { IonicStorageModule } from '@ionic/storage';
 
 export  function  HttpLoaderFactory(http:  HttpClient) {
   return  new  TranslateHttpLoader(http, './assets/translate/', '.json');
@@ -23,6 +24,7 @@ export  function  HttpLoaderFactory(http:  HttpClient) {
   entryComponents: [],
   imports: [BrowserModule, 
     HeaderModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(), 
     AppRoutingModule,
     TranslateModule.forRoot({

@@ -65,10 +65,10 @@ export class ApiService {
      return (<any>await this.httpClient.post('http://waleedser-001-site1.atempurl.com/api/users/register' , data).toPromise());
   }
   async login(data){
-    (<any>await this.httpClient.post('http://waleedser-001-site1.atempurl.com/api/users/login' , data).toPromise());
+   return (<any>await this.httpClient.post('http://waleedser-001-site1.atempurl.com/api/users/login' , data).toPromise());
  }
  async contactUs(data){
-  (<any>await this.httpClient.post('http://waleedser-001-site1.atempurl.com/api/contactus' , data).toPromise());
+  return(<any>await this.httpClient.post('http://waleedser-001-site1.atempurl.com/api/contactus' , data).toPromise());
 }
 async contact(){
  return (<any>await this.httpClient.get('http://waleedser-001-site1.atempurl.com/api/contactus').toPromise());

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from "src/app/apiService/api.service";
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-profile',
@@ -7,32 +8,36 @@ import { ApiService } from "src/app/apiService/api.service";
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-user : any= {};
-gender;
-img;
-status;
-  constructor(private api: ApiService,) { }
+  user: any = {};
+  gender;
+  img;
+  status;
+  constructor(private api: ApiService, private storage: Storage) { }
 
   async ngOnInit() {
-    this.user=await this.api.getUser(3);
-    
+    let user = await this.storage.get('user');
+
+    this.user = await this.api.getUser(user.id);
+    console.log(this.user);
+
     this.status = await this.api.getUpdateStatus(
       {
-      userId: 1,
-      latitude: 30.1, //Double
-      longitude: 31.0, //Double
-      colorId: 2
-    }
+        userId: user.id,
+        latitude: 30.1, //Double
+        longitude: 31.0, //Double
+        colorId: this.user.color.id
+      }
     );
+    await this.storage.set('user' , this.user)
     console.log('status is ', this.status)
     // this.img = await this.api.getImgUser(this.user.imageName);
-  if( !this.user.gender){
-    this.gender = 'Male'
-  } 
-  else{
-    this.gender = 'Female'
-  }
-    
+    if (!this.user.gender) {
+      this.gender = 'Male'
+    }
+    else {
+      this.gender = 'Female'
+    }
+
   }
 
 }

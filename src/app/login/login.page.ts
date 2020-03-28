@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApiService } from '../apiService/api.service';
 import Swal from 'sweetalert2'
+import { Storage } from '@ionic/storage';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,7 @@ export class LoginPage implements OnInit {
     "email": new FormControl('', Validators.required),
     "password": new FormControl('', Validators.required),
   });
-  constructor(private apiService : ApiService) { }
+  constructor(private apiService : ApiService , private storage : Storage ,private router : Router) { }
 
   ngOnInit() {
   }
@@ -24,12 +26,15 @@ export class LoginPage implements OnInit {
   
   let params = {...this.loginForm.value };
 
-    await this.apiService.login(params)
+    let res = await this.apiService.login(params);
+    let user = await this.apiService.getUser(res.id);
+
+   await this.storage.set('user' , user)
+    this.router.navigate(['tabs/profile'])
     Swal.fire({
-      icon: 'error',
+      icon: 'success',
       showConfirmButton: false,
       timer: 1500,
-      title: "please enter valid data"
     })
   }
   else{
