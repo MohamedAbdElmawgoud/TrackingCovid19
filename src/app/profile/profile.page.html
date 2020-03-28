@@ -7,8 +7,8 @@
   
     <img src="{{img}}">
     <ion-card-content>
-      <h1>{{user.firstName}} {{user.lastName}}</h1>
-        <h5>22, {{gender}}</h5>
+      <h1>{{user?.firstName}} {{user?.lastName}}</h1>
+        <h5> {{gender}}</h5>
       </ion-card-content>
    
 <div class="cont" >
@@ -17,7 +17,7 @@
     
     <ion-card-title>
         <ion-icon name="briefcase"></ion-icon>
-      {{user.address}}</ion-card-title>
+      {{user?.address}}</ion-card-title>
   </ion-card>
   
    
@@ -25,7 +25,7 @@
       <ion-card-title>
           <ion-icon name="bicycle" style="font-size: 27px"></ion-icon>
           
-          {{user.email}}</ion-card-title>
+          {{user?.email}}</ion-card-title>
     </ion-card>
 </div>
 
@@ -35,7 +35,7 @@
     <ion-card-title>
         <ion-icon name="car" style="font-size: 27px"></ion-icon>
         
-        {{user.color?.colorName}}
+        {{user?.color?.colorName}}
     </ion-card-title>
   </ion-card>
 
