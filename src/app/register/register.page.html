@@ -1,9 +1,10 @@
 <ion-content>
 
+<app-header></app-header>
 
 
   <ion-card-content>
-    {{'login Form'| translate}}
+    {{'Register Form'| translate}}
     <!-- <ion-icon name="create" slot="create"></ion-icon> -->
   </ion-card-content>
   <form [formGroup]="registerForm">
@@ -92,11 +93,11 @@
       </ion-list>
       <br>
 
-      <ion-label>{{'Choose image profile'| translate}}</ion-label>
+      <ion-label >{{'Choose image profile'| translate}}</ion-label>
       <br>
       <br>
       <ion-item lines="none">
-        <ion-input type="file" (input)="uploadFile($event)" >
+        <ion-input class="file" type="file" (input)="uploadFile($event)" >
 
         </ion-input>
       </ion-item>

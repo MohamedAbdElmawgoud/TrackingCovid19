@@ -11,7 +11,7 @@
      "home address":"عنوان المنزل",
      "work address":"عنوان العمل",
      "Email":"البريد الإلكتروني",
-     "Password":"كلمة المرو",
+     "password":"كلمة المرو",
      "Gender":"الجنس",
      "Female":"أنثى",
      "Male":"رجل",
@@ -27,5 +27,6 @@
      "name":"الاسم",
      "phone":"هاتف",
      "message":"رسالة",
-     "submit":"إرسال"
+     "submit":"إرسال",
+     "Register Form":"استمارة تسجيل"
 }

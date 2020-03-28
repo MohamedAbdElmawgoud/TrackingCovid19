@@ -1,5 +1,5 @@
 ion-content{
-    --background: linear-gradient(to bottom, #000307, #0d0f11)0% 0%/100% 40% no-repeat ,white 0% 100%/100% 50% no-repeat;
+    --background: linear-gradient(to bottom, #181818, #181818)0% 0%/100% 40% no-repeat ,white 0% 100%/100% 50% no-repeat;
     
 } 
 img{
@@ -63,9 +63,11 @@ ion-card-content{
     }
     ion-label{
         font-size: 15px;
+        font-style: bold;
         color: #123457;
         margin-left:  10px;
         margin-right: 10px;
+        text-transform: capitalize;
     }
     .login{
         margin-top: 10px;
@@ -80,4 +82,11 @@ ion-card-content{
         width: 80%;
         height: 35px;
         font-size: 15px;
+    }
+    ion-input{
+        padding: 20px !important;
+    }
+
+    .file{
+        padding: 0 !important;
     }
