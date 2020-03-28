@@ -20,8 +20,8 @@ const Red = {
   url: 'assets/icon/markerRed.svg', // image url
   Size: new google.maps.Size(10, 10), // scaled size
   size: {
-    width: 30,
-    height: 30
+    width: 40,
+    height: 40
  }
 };
 
@@ -29,8 +29,8 @@ const Orange = {
   url: 'assets/icon/markerOrange.svg', // image url
   Size: new google.maps.Size(10, 10), // scaled size
   size: {
-    width: 30,
-    height: 30
+    width: 40,
+    height: 40
  }
 };
 
@@ -38,8 +38,8 @@ const Yellow = {
   url: 'assets/icon/markerYellow.svg', // image url
   Size: new google.maps.Size(10, 10), // scaled size
   size: {
-    width: 30,
-    height: 30
+    width: 40,
+    height: 40
  }
 };
 
@@ -47,8 +47,8 @@ const Black = {
   url: 'assets/icon/markerBlack.svg', // image url
   Size: new google.maps.Size(10, 10), // scaled size
   size: {
-    width: 30,
-    height: 30
+    width: 40,
+    height: 40
  }
 };
 
@@ -56,8 +56,8 @@ const Green = {
   url: 'assets/icon/markerGreen.svg', // image url
   Size: new google.maps.Size(10, 10), // scaled size
   size: {
-    width: 30,
-    height: 30
+    width: 40,
+    height: 40
  }
 };
 
@@ -110,20 +110,24 @@ export class GogleMapComponent implements OnInit {
     
   }
  
+    
+       
   loadMap() {
     this.map = GoogleMaps.create('map_canvas', {
-      // camera: {
-      //   target: {
-      //     lat: 43.0741704,
-      //     lng: -89.3809802
-      //   },
-      //   zoom: 18,
-      //   tilt: 30
-      // }
+    
     });
     
     this.goToMyLocation();
-    
+    setInterval(()=>{ 
+      
+      this.map = GoogleMaps.create('map_canvas', {
+      
+      });
+      
+      this.goToMyLocation();
+    },
+    10000
+    )
   }
  
   routeP(){
@@ -195,8 +199,7 @@ this.addPlolyLine(this.routePointss ,this.color[i] , this.colorName[i]);
       let lat = location.latLng.lat;
       let lng = location.latLng.lng;
     
-            
-       
+     
       // Move the map camera to the location with animation
       this.map.animateCamera({
         target: location.latLng,
