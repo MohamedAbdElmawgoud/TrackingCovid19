@@ -18,46 +18,46 @@ import { ApiService } from "src/app/apiService/api.service";
 declare const google;
 const Red = {
   url: 'assets/icon/markerRed.svg', // image url
-  Size: new google.maps.Size(10, 10), // scaled size
+  // Size: new google.maps.Size(10, 10), // scaled size
   size: {
-    width: 40,
-    height: 40
+    width: 20,
+    height: 20
  }
 };
 
 const Orange = {
   url: 'assets/icon/markerOrange.svg', // image url
-  Size: new google.maps.Size(10, 10), // scaled size
+  // Size: new google.maps.Size(10, 10), // scaled size
   size: {
-    width: 40,
-    height: 40
+    width: 20,
+    height: 20
  }
 };
 
 const Yellow = {
   url: 'assets/icon/markerYellow.svg', // image url
-  Size: new google.maps.Size(10, 10), // scaled size
+  // Size: new google.maps.Size(10, 10), // scaled size
   size: {
-    width: 40,
-    height: 40
+    width: 20,
+    height: 20
  }
 };
 
 const Black = {
   url: 'assets/icon/markerBlack.svg', // image url
-  Size: new google.maps.Size(10, 10), // scaled size
+  // Size: new google.maps.Size(10, 10), // scaled size
   size: {
-    width: 40,
-    height: 40
+    width: 20,
+    height: 20
  }
 };
 
 const Green = {
   url: 'assets/icon/markerGreen.svg', // image url
-  Size: new google.maps.Size(10, 10), // scaled size
+  // Size: new google.maps.Size(10, 10), // scaled size
   size: {
-    width: 40,
-    height: 40
+    width: 20,
+    height: 20
  }
 };
 
