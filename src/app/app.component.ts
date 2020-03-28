@@ -9,6 +9,7 @@ import { BackgroundGeolocation,
     BackgroundGeolocationResponse } from '@ionic-native/background-geolocation/ngx';
 import { ToastController } from "@ionic/angular";
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { ApiService } from "src/app/apiService/api.service";
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,8 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private backgroundGeolocation: BackgroundGeolocation,
-    public translate:  TranslateService
+    public translate:  TranslateService,
+    public api : ApiService
   )
   
   {
@@ -74,11 +76,13 @@ export class AppComponent {
 };
 
 this.backgroundGeolocation.configure(config)
-.then(() => {
+.then(async () => {
 
-this.backgroundGeolocation.on(BackgroundGeolocationEvents.location).subscribe((location: BackgroundGeolocationResponse) => {
+this.backgroundGeolocation.on(BackgroundGeolocationEvents.location).subscribe( async(location: BackgroundGeolocationResponse) => {
 console.log('location is : ' + location);
 this.location.push(location);
+await this.api.getUpdateStatus(this.location);
+
 this.showToast(this.location);
 // IMPORTANT:  You must execute the finish method here to inform the native plugin that you're finished,
 // and the background-task may be completed.  You must do this regardless if your operations are successful or not.
