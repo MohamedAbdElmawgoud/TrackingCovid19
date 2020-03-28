@@ -16,12 +16,48 @@ import {
 import { ApiService } from "src/app/apiService/api.service";
 
 declare const google;
-const icon = {
-  url: 'assets/icon/marker.svg', // image url
+const Red = {
+  url: 'assets/icon/markerRed.svg', // image url
   Size: new google.maps.Size(10, 10), // scaled size
   size: {
-    width: 40,
-    height: 40
+    width: 30,
+    height: 30
+ }
+};
+
+const Orange = {
+  url: 'assets/icon/markerOrange.svg', // image url
+  Size: new google.maps.Size(10, 10), // scaled size
+  size: {
+    width: 30,
+    height: 30
+ }
+};
+
+const Yellow = {
+  url: 'assets/icon/markerYellow.svg', // image url
+  Size: new google.maps.Size(10, 10), // scaled size
+  size: {
+    width: 30,
+    height: 30
+ }
+};
+
+const Black = {
+  url: 'assets/icon/markerBlack.svg', // image url
+  Size: new google.maps.Size(10, 10), // scaled size
+  size: {
+    width: 30,
+    height: 30
+ }
+};
+
+const Green = {
+  url: 'assets/icon/markerGreen.svg', // image url
+  Size: new google.maps.Size(10, 10), // scaled size
+  size: {
+    width: 30,
+    height: 30
  }
 };
 
@@ -31,7 +67,8 @@ const icon = {
   styleUrls: ['./gogle-map.component.scss'],
 })
 export class GogleMapComponent implements OnInit {
-  routePointss= [];
+  colorName=[];
+  routePointss = [];
   poly = [];
   lat= [];
   lng=[];
@@ -61,11 +98,12 @@ export class GogleMapComponent implements OnInit {
   });
  this.poly.forEach(element => {
   this.lat.push(element.ele.latitude);
-  this.lng.push(element.ele.longitude)
+  this.lng.push(element.ele.longitude);
+  this.colorName.push(element.ele.color.colorName);
   this.color.push(element.ele.color.colorHex);
  });
 
- 
+
     this.loadMap();
     this.routeP();
   
@@ -98,11 +136,52 @@ export class GogleMapComponent implements OnInit {
       },
       {
         lat: this.lat[i]+(0.00000900900900900901*10),
-        lng: this.lng[i]+(0.00000900900900900901*10)
+        lng: this.lng[i]
       },
       
+      
     ];
-    this.addPlolyLine(this.routePointss ,this.color[i])
+    this.addPlolyLine(this.routePointss ,this.color[i] , this.colorName[i]);
+    this.routePointss= [  {
+      lat: this.lat[i],
+      lng: this.lng[i]
+    },
+    {
+      lat: this.lat[i],
+      lng: this.lng[i]+(0.00000900900900900901*10)
+    },
+    
+    
+  ];
+  this.addPlolyLine(this.routePointss ,this.color[i] , this.colorName[i]);
+
+
+  this.routePointss= [  {
+    lat: this.lat[i],
+    lng: this.lng[i]
+  },
+  {
+    lat: this.lat[i]-(0.00000900900900900901*10),
+    lng: this.lng[i]
+  },
+  
+  
+];
+this.addPlolyLine(this.routePointss ,this.color[i] , this.colorName[i]);
+
+
+this.routePointss= [  {
+  lat: this.lat[i],
+  lng: this.lng[i]
+},
+{
+  lat: this.lat[i],
+  lng: this.lng[i]-(0.00000900900900900901*10)
+},
+
+
+];
+this.addPlolyLine(this.routePointss ,this.color[i] , this.colorName[i]);
     }
     
     console.log('this is route ', this.routePointss);
@@ -132,7 +211,7 @@ export class GogleMapComponent implements OnInit {
         snippet: 'This plugin is awesome!',
         position: location.latLng,
         animation: GoogleMapsAnimation.BOUNCE,
-        icon : icon,
+        icon : Black,
       });
  
       //show the infoWindow
@@ -154,7 +233,7 @@ export class GogleMapComponent implements OnInit {
       this.showToast(err.error_message);
     });
   }
-  addPlolyLine(routePoints ,color){      
+  addPlolyLine(routePoints ,color ,colorName){      
     this.map.addPolyline({
             points: routePoints,
             'color': color,
@@ -163,13 +242,13 @@ export class GogleMapComponent implements OnInit {
           }).then((resp) => {
             let restaurantMarkerOptions: MarkerOptions = {
               title: "Sample Title",
-              position: this.routePoints[this.routePoints.length - 1],
+              position: routePoints[routePoints.length - 1],
               animation: GoogleMapsAnimation.BOUNCE,
-              icon: icon
+              icon: colorName
             };
-          //   this.map.addMarker(restaurantMarkerOptions).then((marker: Marker) => {
-          //     marker.showInfoWindow();
-          // });
+            this.map.addMarker(restaurantMarkerOptions).then((marker: Marker) => {
+              marker.showInfoWindow();
+          });
             });
         }
   async showToast(message: string) {

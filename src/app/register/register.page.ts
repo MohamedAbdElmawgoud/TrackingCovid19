@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { COLORS_ARRAY } from '../Shared/colers'
 import { ApiService } from '../apiService/api.service';
+import Swal from 'sweetalert2'
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -25,15 +27,36 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
   }
  async submit(){
+if(this.registerForm.valid){
     let params = {...this.registerForm.value , imageName : this.file};
     let form = new FormData();
     Object.keys(params).forEach(ele => {
 
             form.append(ele, params[ele])
+            
 
     })
+    Swal.fire({
+      icon: 'success',
+showConfirmButton: false,
+timer: 1500
+    })
     await this.apiService.register(form)
+  } 
+  
+  else{
+    Swal.fire({
+      icon: 'error',
+      showConfirmButton: false,
+      timer: 1500,
+      title: "please enter valid data"
+    })
+    
   }
+
+  }
+
+
   uploadFile($event){
     this.file = $event.target.files[0];
     
