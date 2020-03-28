@@ -28,7 +28,8 @@ export class RegisterPage implements OnInit {
   }
  async submit(){
 if(this.registerForm.valid){
-    let params = {...this.registerForm.value , imageName : this.file};
+    let params = {...this.registerForm.value , imageName : this.file ,       "latitude": 0 , 
+    "longitude": 0, };
     let form = new FormData();
     Object.keys(params).forEach(ele => {
 
@@ -36,12 +37,13 @@ if(this.registerForm.valid){
             
 
     })
+    await this.apiService.register(form)
+
     Swal.fire({
       icon: 'success',
 showConfirmButton: false,
 timer: 1500
     })
-    await this.apiService.register(form)
   } 
   
   else{

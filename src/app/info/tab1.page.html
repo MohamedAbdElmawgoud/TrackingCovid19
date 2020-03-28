@@ -42,7 +42,19 @@
     
   </div>
   <div class="Blog" *ngIf="!screen">
-    
-    <h1>{{'App use'|translate}}</h1>
+    <ion-card>
+      <ion-card-content>
+        {{'App use'|translate}}
+            </ion-card-content>
+      <ion-card-header>
+          
+          <ion-card-title>
+     
+            {{appUse}}
+            </ion-card-title>
+        </ion-card-header>
+      
+     
+    </ion-card>  
   </div>
 </ion-content>

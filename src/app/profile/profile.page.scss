@@ -68,3 +68,9 @@ ion-icon{
 // position: absolute
 color: #C3C0C0;
 }
+.cont{
+    display: flex;
+    ion-card {
+        width: 45%;;
+    }
+}

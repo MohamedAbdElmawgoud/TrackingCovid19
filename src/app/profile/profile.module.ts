@@ -9,6 +9,7 @@ import { ProfilePageRoutingModule } from './profile-routing.module';
 import { ProfilePage } from './profile.page';
 import { TranslateModule } from  '@ngx-translate/core';
 import { HeaderModule } from '../header/header.module';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { HeaderModule } from '../header/header.module';
     IonicModule,
     TranslateModule,
     ProfilePageRoutingModule,
-    HeaderModule
+    HeaderModule,
+    IonicStorageModule
   ],
   declarations: [ProfilePage]
 })
