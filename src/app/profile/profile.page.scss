@@ -34,7 +34,9 @@ ion-row{
   ion-card-title{
       margin-top: 20px;
       text-align: center;
-     color: #4F4E4E
+     color: #4F4E4E;
+     font-size: 14px;
+
   }
   .stat{
       text-align: center;
@@ -67,6 +69,7 @@ h5{
 ion-icon{
 // position: absolute
 color: #C3C0C0;
+font-size: 12px;;
 }
 .cont{
     display: flex;

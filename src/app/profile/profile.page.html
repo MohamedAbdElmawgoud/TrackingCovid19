@@ -5,7 +5,7 @@
 <ion-content>
   <div>
   
-    <img src="{{img}}">
+    <img src="https://www.kindpng.com/picc/m/78-785827_user-profile-avatar-login-account-male-user-icon.png">
     <ion-card-content>
       <h1>{{user?.firstName}} {{user?.lastName}}</h1>
         <h5> {{gender}}</h5>
@@ -23,22 +23,20 @@
    
   <ion-card>
       <ion-card-title>
-          <ion-icon name="bicycle" style="font-size: 27px"></ion-icon>
+          <ion-icon name="bicycle"></ion-icon>
           
-          {{user?.email}}</ion-card-title>
+          {{user?.workAddress}}</ion-card-title>
     </ion-card>
 </div>
 
 
    
 <ion-card>
-    <ion-card-title>
-        <ion-icon name="car" style="font-size: 27px"></ion-icon>
+    <ion-card-title [style.backgroundColor]="user?.color?.colorName" style="height: 35px;" >
         
-        {{user?.color?.colorName}}
+        <!-- {{user?.color?.colorName}} -->
     </ion-card-title>
   </ion-card>
-
 
 
 
