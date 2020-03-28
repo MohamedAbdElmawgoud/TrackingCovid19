@@ -210,10 +210,10 @@ this.addPlolyLine(this.routePointss ,this.color[i] , this.colorName[i]);
  
       //add a marker
       let marker: Marker = this.map.addMarkerSync({
-        title: '@ionic-native/google-maps plugin!',
+        title: '',
         snippet: 'This plugin is awesome!',
         position: location.latLng,
-        animation: GoogleMapsAnimation.BOUNCE,
+        // animation: GoogleMapsAnimation.BOUNCE,
         icon : Black,
       });
  
@@ -244,9 +244,9 @@ this.addPlolyLine(this.routePointss ,this.color[i] , this.colorName[i]);
             'geodesic': true
           }).then((resp) => {
             let restaurantMarkerOptions: MarkerOptions = {
-              title: "Sample Title",
+              title: "",
               position: routePoints[routePoints.length - 1],
-              animation: GoogleMapsAnimation.BOUNCE,
+              // animation: GoogleMapsAnimation.BOUNCE,
               icon: colorName
             };
             this.map.addMarker(restaurantMarkerOptions).then((marker: Marker) => {
