@@ -30,7 +30,7 @@ export class ProfilePage implements OnInit {
       );
       await this.storage.set('user', this.user)
       console.log('status is ', this.status)
-      // this.img = await this.api.getImgUser(this.user.imageName);
+      this.img = await this.api.getImgUser(this.user.imageName);
       if (this.user && !this.user.gender) {
         this.gender = 'Male'
       }
