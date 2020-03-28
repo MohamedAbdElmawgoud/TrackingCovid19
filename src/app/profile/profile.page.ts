@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from "src/app/apiService/api.service";
+import { ApiService } from "../apiService/api.service";
 import { Storage } from '@ionic/storage';
 
 @Component({
